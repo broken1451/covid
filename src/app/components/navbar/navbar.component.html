@@ -1,0 +1,41 @@
+<div>
+      
+      <p>
+        <mat-toolbar color="primary">
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <!-- <mat-icon>menu</mat-icon> -->
+          </button>
+          <span>Covid App</span>
+          <span class="example-spacer"></span>
+          <button [routerLink]="['/home']"  mat-raised-button color="primary" class="example-icon favorite-icon btn" aria-label="Example icon-button with heart icon">
+            Home
+          </button>
+          <button mat-raised-button [routerLink]="['/countries']"  color="primary" class="example-icon favorite-icon btn" aria-label="Example icon-button with heart icon">
+            Countries
+          </button>
+          <!-- <button mat-raised-button color="primary" class="example-icon favorite-icon btn" aria-label="Example icon-button with heart icon">
+            after
+          </button>
+          <button mat-raised-button color="primary" class="example-icon favorite-icon btn" aria-label="Example icon-button with heart icon">
+            after
+          </button>
+          <button mat-raised-button color="primary" class="example-icon favorite-icon btn" aria-label="Example icon-button with heart icon">
+            after
+          </button> -->
+        
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput >
+
+              <mat-icon matSuffix>search</mat-icon>
+             
+          
+            
+            </mat-form-field>
+          </form>
+        </mat-toolbar>
+      </p>
+
+
+</div>
