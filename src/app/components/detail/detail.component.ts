@@ -12,7 +12,7 @@ import { CovidService } from '../../services/covid.service';
 })
 export class DetailComponent implements OnInit {
 
-  public displayedColumns: string[] = ['Country', 'CountryCode', 'Lat', 'Lon', 'Confirmed', 'Deaths', 'Recovered', 'Active', 'Date', 'Details'];
+  public displayedColumns: string[] = ['Country', 'CountryCode', 'Lat', 'Lon', 'Confirmed', 'Deaths', 'Recovered', 'Active', 'Date'];
   public dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

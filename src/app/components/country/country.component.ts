@@ -65,6 +65,7 @@ export class CountryComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    // console.log(this.dataSource.filter)
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();

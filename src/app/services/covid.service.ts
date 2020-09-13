@@ -29,7 +29,7 @@ export class CovidService {
   }
 
   getSumary(){
-    return this.httpClient.get(`${url}/summary`);
+    return this.httpClient.get<[]>(`${url}/summary`);
   }
 
 }
