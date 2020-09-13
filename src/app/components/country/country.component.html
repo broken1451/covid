@@ -5,9 +5,10 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate" class="mt-5"></mat-progress-bar>
   
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+  <div class="mat-elevation-z8 mt-3">
+    <table mat-table [dataSource]="dataSource" *ngIf="!loading" matSort>
       <button mat-button color="primary">Primary</button>
       <!-- ID Column -->
       <ng-container matColumnDef="Country">

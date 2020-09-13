@@ -24,4 +24,12 @@ export class CovidService {
     return this.httpClient.get<[]>(`${url}/dayone/country/${country}`);
   }
 
+  getCasesEvery10Seconds(country: string, status: string ){
+    return this.httpClient.get<[]>(`${url}/live/country/${country}/status/${status}`);
+  }
+
+  getSumary(){
+    return this.httpClient.get(`${url}/summary`);
+  }
+
 }

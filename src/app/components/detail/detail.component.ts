@@ -5,49 +5,42 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { CovidService } from '../../services/covid.service';
 
-
-
-
-
 @Component({
-  selector: 'app-pais-detail',
-  templateUrl: './pais-detail.component.html',
-  styleUrls: ['./pais-detail.component.scss']
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.scss']
 })
-export class PaisDetailComponent implements OnInit {
+export class DetailComponent implements OnInit {
 
-   public displayedColumns: string[] = ['Country', 'CountryCode', 'Lat', 'Lon', 'Confirmed', 'Deaths', 'Recovered', 'Active', 'Date', 'Details'];
-   public dataSource: MatTableDataSource<any>;
+  public displayedColumns: string[] = ['Country', 'CountryCode', 'Lat', 'Lon', 'Confirmed', 'Deaths', 'Recovered', 'Active', 'Date', 'Details'];
+  public dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   public loading: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router , private covidService: CovidService) {
-    this.loading = true;
+
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((parametrosUrl: Params) => {
       const country = parametrosUrl['country'];
+      const status = parametrosUrl['status'];
       console.log({parametrosUrl});
-      this.getCasesByCountry(country);
+      this.getCasos(country, status);
     });
   }
 
 
-  getCasesByCountry(country: string){
-    this.loading = true;
-    this.covidService.getCasesByCountry(country).subscribe((data) => {
-      setTimeout(() => {
-        data.forEach(( element: any, i: any ) => {
-          // this.paises = element;
-          this.dataSource = new MatTableDataSource(data);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        });
-        this.loading = false;
-      }, 1500);
-      // this.dataSource = data;
+
+  getCasos(country: string, status: string){
+    this.covidService.getCasesEvery10Seconds(country, status).subscribe((data) => {
+      data.forEach(( element: any, i: any ) => {
+        // this.paises = element;
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
       console.log({data});
     });
   }

@@ -7,23 +7,6 @@ import { CovidService } from '../../services/covid.service';
 import { Router } from '@angular/router';
 
 
-// export interface UserData {
-//   id: string;
-//   name: string;
-//   progress: string;
-//   color: string;
-// }
-
-/** Constants used to fill up our data base. */
-// const COLORS: string[] = [
-//   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-//   'aqua', 'blue', 'navy', 'black', 'gray'
-// ];
-// const NAMES: string[] = [
-//   'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-//   'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-// ];
-
 export interface CountryCovid {
   Country: string;
   Slug: string;
@@ -40,6 +23,7 @@ export class CountryComponent implements OnInit, AfterViewInit {
   public displayedColumns: string[] = ['Country', 'ISO2', 'Slug', 'details'];
   public dataSource: MatTableDataSource<any>;
   public paises: CountryCovid[] = [];
+  public loading: boolean;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -47,22 +31,27 @@ export class CountryComponent implements OnInit, AfterViewInit {
   events: string[] = [];
 
   constructor(private covidService: CovidService, private router: Router) {
-
+    this.loading = true;
   }
+
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    console.log({type, event: event.value})
+    console.log({type, event: event.value});
   }
 
   ngOnInit(): void {
+    // this.loading = true;
     this.covidService.getCountries().subscribe((paises) => {
       // this.paises =  paises;
-      console.log( paises);
-      paises.forEach(( element: any, i: any ) => {
-        this.paises = element;
-        this.dataSource = new MatTableDataSource(paises);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      });
+      // console.log( paises);
+      setTimeout(() => {
+        paises.forEach(( element: any, i: any ) => {
+          this.paises = element;
+          this.dataSource = new MatTableDataSource(paises);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        });
+        this.loading = false;
+      }, 3000);
     });
 
     // this.dataSource = new MatTableDataSource(this.paises);
@@ -88,18 +77,4 @@ export class CountryComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/paisDetail', row.Slug]);
   }
 }
-
-/** Builds and returns a new User. */
-// function createNewUser(id: number): UserData {
-//   // const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//   //     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-//   // return {
-//   //   id: id.toString(),
-//   //   name: name,
-//   //   progress: Math.round(Math.random() * 100).toString(),
-//   //   color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-//   // };
-
-// }
 

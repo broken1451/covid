@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RelevantesComponent } from './components/relevantes/relevantes.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { SumaryComponent } from './components/sumary/sumary.component';
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import { RelevantesComponent } from './components/relevantes/relevantes.componen
     NavbarComponent,
     PaisDetailComponent,
     CountryComponent,
-    RelevantesComponent
+    RelevantesComponent,
+    DetailComponent,
+    SumaryComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import { RelevantesComponent } from './components/relevantes/relevantes.componen
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

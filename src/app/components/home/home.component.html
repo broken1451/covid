@@ -1,122 +1,18 @@
 <app-navbar></app-navbar>
 
 
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened style="width: 7%; ">
+<mat-drawer-container class="example-container" style="overflow-x: hidden !important;">
+  <mat-drawer mode="side" opened style="width: 7%; overflow-x: hidden !important; ">
     <h1>Menu principal</h1>
     <mat-list role="list">
       <mat-list-item [routerLink]="['/relevantes']" style="cursor: pointer;" role="listitem">Relevantes</mat-list-item>
       <mat-list-item  [routerLink]="['/countries']"  style="cursor: pointer;" role="listitem">Paises</mat-list-item>
+      <mat-list-item  [routerLink]="['/sumary']"  style="cursor: pointer;" role="listitem">Total y nuevos casos</mat-list-item>
       <!-- <mat-list-item role="listitem">Estadist</mat-list-item> -->
     </mat-list>
   </mat-drawer>
-  <mat-drawer-content style="margin-left: 5%; ">
+  <mat-drawer-content style="margin-left: 5%; overflow-x: hidden !important;">
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
 
-<!-- 
-<div class="row ">
-  <div class="col">
-    <div id="carouselExampleIndicators" class="carousel slide container" data-ride="carousel">
-      <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-</ol>
-<div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="../../../assets/img/covid1.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-        <img src="../../../assets/img/covid1.jpeg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-        <img src="../../../assets/img/covid1.jpg" class="d-block w-100" alt="...">
-    </div>
-</div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-</a>
-</div>
-  </div>
-</div>
-
-<div class="row mt-5">
-    <p class="mt-3 text-justify">
-        La COVID-19 acrónimo del inglés coronavirus disease 2019, también conocida como enfermedad por coronavirus e incorrectamente como neumonía por coronavirus,nota 1​ es una enfermedad infecciosa causada por el virus SARS-CoV-2.9​10​
-    
-        Produce síntomas similares a los de la gripe o catarro, entre los que se incluyen fiebre, tos ,​ disnea, mialgia y fatiga. En casos graves se caracteriza por producir neumonía, síndrome de dificultad respiratoria aguda, sepsis15​ y choque séptico que conduce a cerca de 3,75 % de los infectados a la muerte según la OMS.​ No existe tratamiento específico; las medidas terapéuticas principales consisten en aliviar los síntomas y mantener las funciones vitales.
-        
-        La transmisión del SARS-CoV-2 se produce mediante pequeñas gotas —microgotas de Flügge​— que se emiten al hablar, estornudar, toser o espirar, que al ser despedidas por un portador (que puede no tener síntomas de la enfermedad o estar incubándola) pasan directamente a otra persona mediante la inhalación, o quedan sobre los objetos y superficies que rodean al emisor, y luego, a través de las manos, que lo recogen del ambiente contaminado, toman contacto con las membranas mucosas orales, nasales y oculares, al tocarse la boca, la nariz o los ojos.19​20​ Esta última es la principal vía de propagación, ya que el virus puede permanecer viable hasta por días en los fómites (cualquier objeto carente de vida, o sustancia, que si se contamina con algún patógeno es capaz de transferirlo de un individuo a otro).
-        
-        Los síntomas aparecen entre dos y catorce días, con un promedio de cinco días, después de la exposición al virus. Existe evidencia limitada que sugiere que el virus podría transmitirse uno o dos días antes de que se tengan síntomas, ya que la viremia alcanza un pico al final del período de incubación.25​26​El contagio se puede prevenir con el lavado de manos frecuente, o en su defecto la desinfección de las mismas con alcohol en gel, cubriendo la boca al toser o estornudar, ya sea con la sangradura (parte hundida del brazo opuesta al codo) o con un pañuelo y evitando el contacto cercano con otras personas, entre otras medidas profilácticas, como el uso de mascarillas. La OMS desaconsejaba en marzo la utilización de máscara quirúrgica por la población sana,  en abril la OMS consideró que era una medida aceptable en algunos países. ​No obstante, ciertos expertos recomiendan el uso de máscaras quirúrgicas basados en estudios sobre la Influenza H1N1, donde muestran que podrían ayudar a reducir la exposición al virus.30​ Los CDC de Estados Unidos recomiendan el uso de mascarillas de tela, no médicas.
-    </p>
-
-    <mat-card class="example-card ml-5 mt-5 scroll">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card ml-5 mt-5 scroll">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card ml-5 mt-5 scroll">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card ml-5 mt-5 scroll">
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-
-
-   
-    
-
-</div> -->
